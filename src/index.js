@@ -1,3 +1,3 @@
-// import { init } from "./js/init.js";
+import { init } from "./js/init.js";
 
-// init();
+init();
