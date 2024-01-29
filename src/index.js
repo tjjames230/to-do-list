@@ -1,5 +1,3 @@
-import { init } from "./js/init.js";
-import html from "./index.html";
+// import { init } from "./js/init.js";
 
-html();
-init();
+// init();
