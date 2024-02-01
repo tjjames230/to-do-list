@@ -1,3 +1,4 @@
+import { allTasks } from "./Tasks";
 export { loadHome };
 
 const main = document.querySelector("main");
