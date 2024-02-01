@@ -1,4 +1,4 @@
-import { init } from "./js/init.js";
+import { loadHome } from "./js/UI.js";
 import "./scss/styles.scss";
 
-init();
+loadHome();

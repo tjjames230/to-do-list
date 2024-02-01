@@ -1,0 +1,7 @@
+@use "../utilities/" as *;
+@use "../globals/" as *;
+
+main {
+  width: 80%;
+  padding: rem(25);
+}

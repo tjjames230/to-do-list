@@ -2,7 +2,8 @@
 @use "../globals/" as *;
 
 aside {
-  width: 25%;
+  width: 20%;
+  min-width: rem(300);
   padding: rem(25);
   display: flex;
   flex-direction: column;
