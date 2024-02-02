@@ -8,7 +8,7 @@ function loadHome() {
 }
 
 function loadTasks() {
-  main.innerHTML = "<h1>Hello World</h1>";
+  // main.innerHTML = "<h1>Hello World</h1>";
 }
 
 function loadProjects() {}
