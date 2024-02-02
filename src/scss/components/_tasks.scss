@@ -14,14 +14,26 @@
   .task,
   .task-headers {
     display: grid;
-    grid: auto-flow / rem(250) 1fr rem(150) rem(150);
+    grid: auto-flow / rem(40) rem(250) 1fr rem(150) rem(200);
     gap: rem(15);
     padding: rem(10);
     background-color: lightblue;
+    align-items: center;
 
     h5,
-    p {
+    p,
+    i {
       text-align: center;
+    }
+
+    i {
+      padding: rem(5);
+    }
+
+    i:hover {
+      cursor: pointer;
+      background-color: hsl(120, 100%, 50%);
+      color: white;
     }
 
     .task-description {

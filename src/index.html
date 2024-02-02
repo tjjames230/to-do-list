@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <title>To Do List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      src="https://kit.fontawesome.com/2eaffc825f.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <!-- navigation bar and project list -->
@@ -12,7 +16,7 @@
       <div class="aside-flex">
         <h4>Tasks Due</h4>
         <button>Today</button>
-        <button>Next Week</button>
+        <button>Upcoming</button>
         <button>All</button>
         <button>Add Task</button>
       </div>
@@ -33,14 +37,17 @@
       </div>
     </aside>
     <main>
+      <h1>Tasks</h1>
       <section class="task-list">
         <div class="task-headers">
+          <p class="task-complete"></p>
           <h5>Title</h5>
           <p>Description</p>
           <p>Due Date</p>
           <p>Project</p>
         </div>
         <div class="task">
+          <i class="fa-solid fa-check"></i>
           <h5 class="task-title">Buy dog food</h5>
           <p class="task-description">
             Dog will run out of food in a couple days, will go to the store to
@@ -50,6 +57,7 @@
           <p class="task-project">Personal</p>
         </div>
         <div class="task">
+          <i class="fa-solid fa-check"></i>
           <h5 class="task-title">Buy dog food</h5>
           <p class="task-description">
             Dog will run out of food in a couple days, will go to the store to
