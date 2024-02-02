@@ -1,16 +1,30 @@
 import { allTasks, addTask } from "./Tasks";
-export { loadHome };
+export { UI };
 
 const main = document.querySelector("main");
 
-function loadHome() {
-  loadTasks();
+class UI {
+  static loadHome() {
+    this.loadTasks();
+    this.loadEventListeners();
+  }
+
+  static loadTasks() {
+    //main.innerHTML = "<h1>Hello World</h1>";
+  }
+
+  static loadProjects() {}
+
+  static loadEventListeners() {
+    this.createTask();
+  }
+
+  static createTask() {
+    const addTaskBtn = document.querySelector("#add-task");
+    addTaskBtn.addEventListener("click", addTaskDisplay);
+
+    function addTaskDisplay() {
+      console.log("new task display");
+    }
+  }
 }
-
-function loadTasks() {
-  //main.innerHTML = "<h1>Hello World</h1>";
-}
-
-function loadProjects() {}
-
-document.querySelector("#add-task").addEventListener("click", addTask);
