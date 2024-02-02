@@ -4,18 +4,27 @@
 .task-list {
   display: flex;
   flex-direction: column;
-  gap: rem(25);
+  gap: rem(10);
   width: 90%;
-  background-color: lightgray;
 
-  .task {
-    display: flex;
-    padding: rem(15);
+  .task-headers {
+    font-weight: 700;
+  }
+
+  .task,
+  .task-headers {
+    display: grid;
+    grid: auto-flow / rem(250) 1fr rem(150) rem(150);
+    gap: rem(15);
+    padding: rem(10);
     background-color: lightblue;
-    justify-content: space-around;
+
+    h5,
+    p {
+      text-align: center;
+    }
 
     .task-description {
-      max-width: rem(600);
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
