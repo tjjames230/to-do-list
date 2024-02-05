@@ -1,4 +1,4 @@
-import { allTasks, addTask } from "./Tasks";
+import { allTasks } from "./Tasks";
 export { UI };
 
 const main = document.querySelector("main");

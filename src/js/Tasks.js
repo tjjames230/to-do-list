@@ -1,5 +1,5 @@
 // file for keeping track of state for all tasks & adding new tasks
-export { allTasks, addTask };
+export { allTasks };
 
 const taskOne = {
   title: "Buy dog food",
@@ -25,8 +25,12 @@ class Task {
     this.dueDate = dueDate;
     this.project = project;
   }
-}
 
-function addTask() {
-  console.log("add task function");
+  deleteTask() {
+    console.log("delete task function");
+  }
+
+  addTask() {
+    console.log("add task to allTasks function");
+  }
 }

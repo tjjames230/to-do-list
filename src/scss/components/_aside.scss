@@ -10,6 +10,7 @@ aside {
   gap: rem(45);
   background-color: $clr-tertiary;
   min-height: 100vh;
+  z-index: 2;
 
   .aside-flex {
     display: flex;
