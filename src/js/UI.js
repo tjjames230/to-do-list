@@ -24,7 +24,30 @@ class UI {
     addTaskBtn.addEventListener("click", addTaskDisplay);
 
     function addTaskDisplay() {
-      console.log("new task display");
+      const newTaskCtn = document.createElement("div");
+      newTaskCtn.classList.add("new-task-bg");
+      const newTaskForm = document.createElement("form");
+      newTaskForm.classList.add("new-task-form");
+      newTaskForm.innerHTML = `<div class="input-ctn" id="title-ctn">
+        <label>Title</label>
+        <input type="text" id="title" required />
+      </div>
+      <div class="input-ctn" id="description-ctn">
+        <label>Description</label>
+        <input />
+      </div>
+      <div class="input-ctn" id="due-date-ctn">
+        <label>Due Date</label>
+        <input type="date" required />
+      </div>
+      <div class="input-ctn" id="project-ctn">
+        <label>Project</label>
+        <input type="text" />
+      </div>
+      <button type="submit">Create Task</button>`;
+
+      newTaskCtn.appendChild(newTaskForm);
+      main.prepend(newTaskCtn);
     }
   }
 }

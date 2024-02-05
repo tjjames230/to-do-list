@@ -19,7 +19,7 @@ const taskTwo = {
 const allTasks = [taskOne, taskTwo];
 
 class Task {
-  constructor(title, description, dueDate, project = null) {
+  constructor(title, description = "", dueDate, project = null) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
