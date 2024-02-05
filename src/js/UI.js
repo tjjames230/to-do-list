@@ -10,6 +10,8 @@ class UI {
     this.loadEventListeners();
   }
 
+  static newTaskWindowOpen = false;
+
   static loadTasks() {
     // this.clearMain();
     // main.innerHTML = "<h1>Tasks</h1>";
@@ -21,25 +23,25 @@ class UI {
   }
 
   static loadEventListeners() {
-    this.createTask();
+    document.addEventListener("click", this.handleDocumentClick);
   }
 
-  static createTask() {
-    const addTaskBtn = document.querySelector("#add-task");
-    let windowOpen = false;
-    addTaskBtn.addEventListener("click", addTaskDisplay);
+  static handleDocumentClick(event) {
+    const { target } = event;
+    if (target.matches("#add-task") && UI.newTaskWindowOpen == false) {
+      UI.addTaskDisplay();
+    }
+  }
 
-    function addTaskDisplay() {
-      if (windowOpen === false) {
-        windowOpen = true;
+  static addTaskDisplay() {
+    UI.newTaskWindowOpen = true;
+    const newTaskCtn = document.createElement("div");
+    newTaskCtn.classList.add("new-task-bg");
 
-        const newTaskCtn = document.createElement("div");
-        newTaskCtn.classList.add("new-task-bg");
+    const newTaskForm = document.createElement("form");
+    newTaskForm.classList.add("new-task-form");
 
-        const newTaskForm = document.createElement("form");
-        newTaskForm.classList.add("new-task-form");
-
-        newTaskForm.innerHTML = `<div class="input-ctn" id="title-ctn">
+    newTaskForm.innerHTML = `<div class="input-ctn" id="title-ctn">
         <label for="title">Title</label>
         <input type="text" id="title" />
         </div>
@@ -57,22 +59,20 @@ class UI {
         </div>
         <button id="submit-new-task" type="submit">Create Task</button>`;
 
-        newTaskCtn.addEventListener("click", (e) => {
-          if (e.target === newTaskCtn) {
-            main.removeChild(newTaskCtn);
-            windowOpen = false;
-          }
-        });
-
-        newTaskCtn.appendChild(newTaskForm);
-        main.prepend(newTaskCtn);
-
-        let submitTaskBtn = document.querySelector("#submit-new-task");
-        submitTaskBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-        });
+    newTaskCtn.addEventListener("click", (e) => {
+      if (e.target === newTaskCtn) {
+        main.removeChild(newTaskCtn);
+        UI.newTaskWindowOpen = false;
       }
-    }
+    });
+
+    newTaskCtn.appendChild(newTaskForm);
+    main.prepend(newTaskCtn);
+
+    let submitTaskBtn = document.querySelector("#submit-new-task");
+    submitTaskBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
   }
 
   static clearMain() {
