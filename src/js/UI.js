@@ -21,14 +21,17 @@ class UI {
 
   static createTask() {
     const addTaskBtn = document.querySelector("#add-task");
+    let newTaskWindow = 0;
     addTaskBtn.addEventListener("click", addTaskDisplay);
 
     function addTaskDisplay() {
-      const newTaskCtn = document.createElement("div");
-      newTaskCtn.classList.add("new-task-bg");
-      const newTaskForm = document.createElement("form");
-      newTaskForm.classList.add("new-task-form");
-      newTaskForm.innerHTML = `<div class="input-ctn" id="title-ctn">
+      if (newTaskWindow === 0) {
+        newTaskWindow++;
+        const newTaskCtn = document.createElement("div");
+        newTaskCtn.classList.add("new-task-bg");
+        const newTaskForm = document.createElement("form");
+        newTaskForm.classList.add("new-task-form");
+        newTaskForm.innerHTML = `<div class="input-ctn" id="title-ctn">
         <label>Title</label>
         <input type="text" id="title" required />
       </div>
@@ -45,9 +48,16 @@ class UI {
         <input type="text" />
       </div>
       <button type="submit">Create Task</button>`;
+        newTaskCtn.addEventListener("click", (e) => {
+          if (e.target === newTaskCtn) {
+            main.removeChild(newTaskCtn);
+            newTaskWindow--;
+          }
+        });
 
-      newTaskCtn.appendChild(newTaskForm);
-      main.prepend(newTaskCtn);
+        newTaskCtn.appendChild(newTaskForm);
+        main.prepend(newTaskCtn);
+      }
     }
   }
 }
