@@ -13,7 +13,7 @@ class UI {
   static newTaskWindowOpen = false;
 
   static checkWindowOpen() {
-    return this.newTaskWindowOpen === false ? true : false;
+    return this.newTaskWindowOpen;
   }
 
   static loadTasks() {
@@ -40,7 +40,7 @@ class UI {
   }
 
   static addTaskDisplay() {
-    if (this.checkWindowOpen()) {
+    if (!this.checkWindowOpen()) {
       UI.newTaskWindowOpen = true;
       const newTaskCtn = document.createElement("div");
       newTaskCtn.classList.add("new-task-bg");
@@ -80,6 +80,12 @@ class UI {
       submitTaskBtn.addEventListener("click", (e) => {
         e.preventDefault();
       });
+    }
+  }
+
+  static addProjectDisplay() {
+    if (!this.checkWindowOpen()) {
+      console.log("new project form");
     }
   }
 
