@@ -32,23 +32,35 @@ class UI {
 
   static handleDocumentClick(event) {
     const { target } = event;
-    if (target.matches("#add-task")) {
-      UI.addTaskDisplay();
-    } else if (target.matches("#add-project")) {
-      UI.addProjectDisplay();
+    if (target.matches("#add-task") && !this.checkWindowOpen) {
+      UI.displayForm("task");
+    } else if (target.matches("#add-project") && !this.checkWindowOpen) {
+      UI.displayForm("project");
     }
   }
 
+  static displayForm(formType) {
+    UI.newTaskWindowOpen = true;
+    const form =
+      formType === "task" ? this.createTaskForm() : this.createProjectForm();
+  }
+
+  static createTaskForm() {
+    console.log("create task");
+  }
+
+  static createProjectForm() {
+    console.log("create project");
+  }
+
   static addTaskDisplay() {
-    if (!this.checkWindowOpen()) {
-      UI.newTaskWindowOpen = true;
-      const newTaskCtn = document.createElement("div");
-      newTaskCtn.classList.add("new-task-bg");
+    const newTaskCtn = document.createElement("div");
+    newTaskCtn.classList.add("new-task-bg");
 
-      const newTaskForm = document.createElement("form");
-      newTaskForm.classList.add("new-task-form");
+    const newTaskForm = document.createElement("form");
+    newTaskForm.classList.add("new-task-form");
 
-      newTaskForm.innerHTML = `<div class="input-ctn" id="title-ctn">
+    newTaskForm.innerHTML = `<div class="input-ctn" id="title-ctn">
         <label for="title">Title</label>
         <input type="text" id="title" />
         </div>
@@ -66,21 +78,20 @@ class UI {
         </div>
         <button id="submit-new-task" type="submit">Create Task</button>`;
 
-      newTaskCtn.addEventListener("click", (e) => {
-        if (e.target === newTaskCtn) {
-          main.removeChild(newTaskCtn);
-          UI.newTaskWindowOpen = false;
-        }
-      });
+    newTaskCtn.addEventListener("click", (e) => {
+      if (e.target === newTaskCtn) {
+        main.removeChild(newTaskCtn);
+        UI.newTaskWindowOpen = false;
+      }
+    });
 
-      newTaskCtn.appendChild(newTaskForm);
-      main.prepend(newTaskCtn);
+    newTaskCtn.appendChild(newTaskForm);
+    main.prepend(newTaskCtn);
 
-      let submitTaskBtn = document.querySelector("#submit-new-task");
-      submitTaskBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-      });
-    }
+    let submitTaskBtn = document.querySelector("#submit-new-task");
+    submitTaskBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
   }
 
   static addProjectDisplay() {
