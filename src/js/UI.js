@@ -125,7 +125,9 @@ class UI {
         this.checkFormConditions(title) &&
         this.checkFormConditions(dueDate)
       ) {
-        console.log(title, dueDate, description, project);
+        const task = new Task(title, dueDate, description, project);
+        allTasks.push(task);
+        console.log(allTasks);
       }
     });
   }

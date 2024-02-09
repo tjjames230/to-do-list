@@ -21,8 +21,8 @@ const allTasks = [taskOne, taskTwo];
 class Task {
   constructor(title, dueDate, description = "", project = null) {
     this.title = title;
-    this.description = description;
     this.dueDate = dueDate;
+    this.description = description;
     this.project = project;
   }
 
@@ -36,4 +36,4 @@ class Task {
 }
 
 const testTask = new Task("example title", "example duedate");
-console.log(testTask);
+console.log(allTasks);
