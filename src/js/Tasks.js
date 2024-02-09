@@ -1,5 +1,5 @@
 // file for keeping track of state for all tasks & adding new tasks
-export { allTasks };
+export { allTasks, Task };
 
 const taskOne = {
   title: "Buy dog food",

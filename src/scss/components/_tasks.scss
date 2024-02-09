@@ -48,7 +48,7 @@
   }
 }
 
-.new-task-bg {
+.form-bg {
   z-index: 1;
   display: flex;
   align-items: center;
@@ -60,7 +60,7 @@
   width: 80%;
   background-color: hsla(0, 0%, 0%, 0.7);
 
-  .new-task-form {
+  .new-form {
     background-color: white;
     padding: rem(25);
     border-radius: rem(25);
@@ -76,7 +76,7 @@
 }
 
 @media screen and (max-width: 1500px) {
-  .new-task-bg {
+  .form-bg {
     max-width: calc(100% - 300px);
   }
 }
