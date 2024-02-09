@@ -121,10 +121,23 @@ class UI {
       const project = document.querySelector("#project").value;
 
       // if valid, create new obj with values
-      if (title !== "" && dueDate !== "") {
-        const task = new Task(title);
+      if (
+        this.checkFormConditions(title) &&
+        this.checkFormConditions(dueDate)
+      ) {
+        console.log(title, dueDate, description, project);
       }
     });
+  }
+
+  static checkFormConditions(field) {
+    switch (field) {
+      case "":
+      case " ":
+        return false;
+      default:
+        return true;
+    }
   }
 
   static handleProjectSubmit() {
