@@ -19,7 +19,7 @@ const taskTwo = {
 const allTasks = [taskOne, taskTwo];
 
 class Task {
-  constructor(title, description = "", dueDate, project = null) {
+  constructor(title, dueDate, description = "", project = null) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;
@@ -34,3 +34,6 @@ class Task {
     console.log("add task to allTasks function");
   }
 }
+
+const testTask = new Task("example title", "example duedate");
+console.log(testTask);

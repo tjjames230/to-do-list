@@ -19,7 +19,7 @@
   .task,
   .task-headers {
     display: grid;
-    grid: auto-flow / rem(40) rem(250) 1fr rem(150) rem(200);
+    grid: auto-flow / rem(40) rem(200) rem(100) 1fr rem(150);
     gap: rem(15);
     padding: rem(10);
     align-items: center;
@@ -40,7 +40,19 @@
       color: white;
     }
 
+    .task-title {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
     .task-description {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .task-project {
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;

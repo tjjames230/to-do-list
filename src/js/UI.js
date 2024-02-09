@@ -1,4 +1,4 @@
-import { allTasks } from "./Tasks";
+import { allTasks, Task } from "./Tasks";
 export { UI };
 
 const main = document.querySelector("main");
@@ -10,8 +10,9 @@ class UI {
     this.loadEventListeners();
   }
 
-  static clearMain() {
-    main.innerHTML = "";
+  static clearContent(sectionName) {
+    const section = document.querySelector(sectionName);
+    section.innerHTML = "";
   }
 
   static newTaskWindowOpen = false;
@@ -21,12 +22,11 @@ class UI {
   }
 
   static loadTasks() {
-    // this.clearMain();
-    // main.innerHTML = "<h1>Tasks</h1>";
+    //this.clearContent("main");
   }
 
   static loadProjects() {
-    // this.clearMain();
+    // this.clearContent();
     // main.innerHTML = `<h1>${project.name}</h1>`;
   }
 
@@ -113,6 +113,17 @@ class UI {
     let submitBtn = document.querySelector("#submit-new-task");
     submitBtn.addEventListener("click", (e) => {
       e.preventDefault();
+
+      // assign values from form
+      const title = document.querySelector("#title").value;
+      const dueDate = document.querySelector("#due-date").value;
+      const description = document.querySelector("#description").value;
+      const project = document.querySelector("#project").value;
+
+      // if valid, create new obj with values
+      if (title !== "" && dueDate !== "") {
+        const task = new Task(title);
+      }
     });
   }
 
