@@ -22,7 +22,9 @@ class UI {
   }
 
   static loadTasks() {
-    //this.clearContent("main");
+    //this.clearContent("#task-ctn");
+    const header = document.querySelector("#main-header");
+    header.textContent;
   }
 
   static loadProjects() {
