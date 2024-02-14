@@ -131,6 +131,7 @@ class UI {
         const task = new Task(title, dueDate, description, project);
         allTasks.push(task);
         main.removeChild(formCtn);
+        UI.newTaskWindowOpen = false;
         this.loadTasks();
       }
     });
