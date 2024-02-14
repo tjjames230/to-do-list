@@ -7,7 +7,7 @@ const main = document.querySelector("main");
 
 class UI {
   static loadHome() {
-    this.loadTasks();
+    this.loadTasks("Today");
     this.loadProjects();
     this.loadEventListeners();
   }
@@ -23,11 +23,21 @@ class UI {
     return this.newTaskWindowOpen;
   }
 
-  static loadTasks() {
+  static loadTasks(day) {
     this.clearContent("#task-ctn");
     const header = document.querySelector("#main-header");
-    header.textContent = "Today's Tasks";
-    this.displayTasks();
+    header.textContent = `${this.getHeader(day)} Tasks`;
+    //this.displayTasks(day);
+  }
+
+  static getHeader(day) {
+    if (day === "Today") {
+      return "Today's";
+    } else if (day === "Upcoming") {
+      return "This Week's";
+    } else if (day === "All") {
+      return "All";
+    }
   }
 
   static loadProjects() {
@@ -46,7 +56,11 @@ class UI {
     } else if (target.matches("#add-project") && !UI.checkWindowOpen()) {
       UI.displayForm("project");
     } else if (target.matches("#tasks-today-btn")) {
-      console.log(123);
+      UI.loadTasks("Today");
+    } else if (target.matches("#tasks-upcoming-btn")) {
+      UI.loadTasks("Upcoming");
+    } else if (target.matches("#tasks-all-btn")) {
+      UI.loadTasks("All");
     }
   }
 
