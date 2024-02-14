@@ -139,6 +139,7 @@ class UI {
 
   static displayTasks() {
     this.createTask();
+    this.addTaskEventListeners();
   }
 
   static createTask() {
@@ -159,6 +160,15 @@ class UI {
     </div>`;
       document.querySelector("#task-ctn").appendChild(div);
     }
+  }
+
+  static addTaskEventListeners() {
+    const completeBtns = document.querySelectorAll(".task-complete");
+    completeBtns.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        console.log(e.target.parentNode);
+      });
+    });
   }
 
   static checkFormConditions(field) {
