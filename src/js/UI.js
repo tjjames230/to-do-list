@@ -95,10 +95,20 @@ class UI {
     </div>
     <div class="input-ctn" id="project-ctn">
       <label for="project">Project</label>
-      <input id="project" type="text" />
-    </div>
-    <button id="submit-new-task" type="submit">Create Task</button>`;
+      <select name="project" id="project">
+      <option value="">-- Choose a project --</option>
+      ${this.createSelectOptions()}
+      </select></div><button id="submit-new-task" type="submit">Create Task</button>`;
     return form;
+  }
+
+  static createSelectOptions() {
+    let options = "";
+    for (let i = 0; i < allProjects.length; i++) {
+      let text = `<option value="${allProjects[i].name}">${allProjects[i].name}</option>`;
+      options += text;
+    }
+    return options;
   }
 
   static createProjectForm() {
@@ -169,8 +179,8 @@ class UI {
     });
   }
 
-  static checkTaskComplete(event) {
-    const parentDiv = event.target.parentNode.parentNode;
+  static checkTaskComplete(e) {
+    const parentDiv = e.target.parentNode.parentNode;
     const title = parentDiv.firstChild.nextSibling.nextSibling.textContent;
     allTasks.map((obj) => {
       if (title === obj.title) {
