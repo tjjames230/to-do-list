@@ -129,7 +129,7 @@ class UI {
         this.checkFormConditions(dueDate)
       ) {
         const task = new Task(title, dueDate, description, project);
-        allTasks.push(task);
+        task.addTask();
         main.removeChild(formCtn);
         UI.newTaskWindowOpen = false;
         this.loadTasks();
@@ -164,21 +164,21 @@ class UI {
   static addTaskEventListeners() {
     const completeBtns = document.querySelectorAll(".task-complete");
     completeBtns.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        const parentDiv = e.target.parentNode.parentNode;
-        const title = parentDiv.firstChild.nextSibling.nextSibling.textContent;
-        for (let i = 0; i < allTasks.length; i++) {
-          if (title === allTasks[i].title) {
-            allTasks.splice(allTasks.indexOf(allTasks[i]), 1);
-            this.loadTasks();
-            return;
-          }
-        }
-      });
+      btn.addEventListener("click", this.checkTaskComplete);
     });
   }
 
-  static checkTaskComplete() {}
+  static checkTaskComplete(event) {
+    const parentDiv = event.target.parentNode.parentNode;
+    const title = parentDiv.firstChild.nextSibling.nextSibling.textContent;
+    for (let i = 0; i < allTasks.length; i++) {
+      if (title === allTasks[i].title) {
+        allTasks[i].deleteTask();
+        UI.loadTasks();
+        return;
+      }
+    }
+  }
 
   static checkFormConditions(field) {
     switch (field) {

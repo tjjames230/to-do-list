@@ -27,13 +27,12 @@ class Task {
   }
 
   deleteTask() {
-    console.log("delete task function");
+    allTasks.splice(allTasks.indexOf(this), 1);
   }
 
   addTask() {
-    console.log("add task to allTasks function");
+    allTasks.push(this);
   }
 }
 
-const testTask = new Task("example title", "example duedate");
 console.log(allTasks);
