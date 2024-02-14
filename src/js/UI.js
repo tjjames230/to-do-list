@@ -166,7 +166,7 @@ class UI {
     const completeBtns = document.querySelectorAll(".task-complete");
     completeBtns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        console.log(e.target.parentNode);
+        console.log(e.target.parentNode.parentNode);
       });
     });
   }
