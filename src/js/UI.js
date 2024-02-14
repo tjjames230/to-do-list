@@ -22,9 +22,10 @@ class UI {
   }
 
   static loadTasks() {
-    //this.clearContent("#task-ctn");
+    this.clearContent("#task-ctn");
     const header = document.querySelector("#main-header");
-    header.textContent;
+    header.textContent = "Today's Tasks";
+    this.displayTasks();
   }
 
   static loadProjects() {
@@ -53,9 +54,9 @@ class UI {
     this.createFormEventListeners(formCtn);
     main.prepend(formCtn);
     if (formType === "task") {
-      this.handleTaskSubmit();
+      this.handleTaskSubmit(formCtn);
     } else {
-      this.handleProjectSubmit();
+      this.handleProjectSubmit(formCtn);
     }
   }
 
@@ -111,7 +112,7 @@ class UI {
     return form;
   }
 
-  static handleTaskSubmit() {
+  static handleTaskSubmit(formCtn) {
     let submitBtn = document.querySelector("#submit-new-task");
     submitBtn.addEventListener("click", (e) => {
       e.preventDefault();
@@ -129,9 +130,34 @@ class UI {
       ) {
         const task = new Task(title, dueDate, description, project);
         allTasks.push(task);
-        console.log(allTasks);
+        main.removeChild(formCtn);
+        this.loadTasks();
       }
     });
+  }
+
+  static displayTasks() {
+    this.createTask();
+  }
+
+  static createTask() {
+    for (let i = 0; i < allTasks.length; i++) {
+      const title = allTasks[i].title;
+      const dueDate = allTasks[i].dueDate;
+      const description = allTasks[i].description;
+      const project = allTasks[i].project;
+      const div = document.createElement("div");
+      div.innerHTML = `<div class="task">
+      <button class="task-complete">
+        <i class="fa-solid fa-check"></i>
+      </button>
+      <h5 class="task-title">${title}</h5>
+      <p class="task-date">${dueDate}</p>
+      <p class="task-description">${description}</p>
+      <p class="task-project">${project}</p>
+    </div>`;
+      document.querySelector("#task-ctn").appendChild(div);
+    }
   }
 
   static checkFormConditions(field) {
