@@ -149,15 +149,14 @@ class UI {
       const description = allTasks[i].description;
       const project = allTasks[i].project;
       const div = document.createElement("div");
-      div.innerHTML = `<div class="task">
-      <button class="task-complete">
+      div.classList.add("task");
+      div.innerHTML = `<button class="task-complete">
         <i class="fa-solid fa-check"></i>
       </button>
       <h5 class="task-title">${title}</h5>
       <p class="task-date">${dueDate}</p>
       <p class="task-description">${description}</p>
-      <p class="task-project">${project}</p>
-    </div>`;
+      <p class="task-project">${project}</p>`;
       document.querySelector("#task-ctn").appendChild(div);
     }
   }
@@ -166,10 +165,20 @@ class UI {
     const completeBtns = document.querySelectorAll(".task-complete");
     completeBtns.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-        console.log(e.target.parentNode.parentNode);
+        const parentDiv = e.target.parentNode.parentNode;
+        const title = parentDiv.firstChild.nextSibling.nextSibling.textContent;
+        for (let i = 0; i < allTasks.length; i++) {
+          if (title === allTasks[i].title) {
+            allTasks.splice(allTasks.indexOf(allTasks[i]), 1);
+            this.loadTasks();
+            return;
+          }
+        }
       });
     });
   }
+
+  static checkTaskComplete() {}
 
   static checkFormConditions(field) {
     switch (field) {
