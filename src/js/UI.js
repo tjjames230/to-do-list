@@ -27,7 +27,7 @@ class UI {
     this.clearContent("#task-ctn");
     const header = document.querySelector("#main-header");
     header.textContent = `${this.getHeader(day)} Tasks`;
-    //this.displayTasks(day);
+    this.displayTasks(day);
   }
 
   static getHeader(day) {
@@ -150,7 +150,7 @@ class UI {
       const day = document.querySelector("#due-date").value.slice(8, 10);
       const month = document.querySelector("#due-date").value.slice(5, 7);
       const year = document.querySelector("#due-date").value.slice(0, 4);
-      const dueDate = format(new Date(year, month, day), "MM/dd/yyyy");
+      const dueDate = format(new Date(year, month - 1, day), "MM/dd/yyyy");
       const description = document.querySelector("#description").value;
       const project = document.querySelector("#project").value;
 
@@ -163,22 +163,28 @@ class UI {
         task.addTask();
         main.removeChild(formCtn);
         UI.newTaskWindowOpen = false;
-        this.loadTasks();
+        this.loadTasks("All");
       }
     });
   }
 
-  static displayTasks() {
-    this.createTask();
+  static displayTasks(day) {
+    let arr = [];
+
+    if (day === "All") {
+      arr = allTasks;
+    }
+
+    this.createTask(arr);
     this.addTaskEventListeners();
   }
 
-  static createTask() {
-    for (let i = 0; i < allTasks.length; i++) {
-      const title = allTasks[i].title;
-      const dueDate = allTasks[i].dueDate;
-      const description = allTasks[i].description;
-      const project = allTasks[i].project;
+  static createTask(arr) {
+    for (let i = 0; i < arr.length; i++) {
+      const title = arr[i].title;
+      const dueDate = arr[i].dueDate;
+      const description = arr[i].description;
+      const project = arr[i].project;
       const div = document.createElement("div");
       div.classList.add("task");
       div.innerHTML = `<button class="task-complete">
