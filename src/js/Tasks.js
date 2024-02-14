@@ -34,5 +34,3 @@ class Task {
     allTasks.push(this);
   }
 }
-
-console.log(allTasks);

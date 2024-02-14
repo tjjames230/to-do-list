@@ -1,8 +1,10 @@
 import { allTasks, Task } from "./Tasks";
 import { allProjects, Project } from "./Projects";
+import { format } from "date-fns";
 export { UI };
 
 const main = document.querySelector("main");
+console.log(format(new Date(), "'Today is a' eeee"));
 
 class UI {
   static loadHome() {
@@ -44,6 +46,8 @@ class UI {
       UI.displayForm("task");
     } else if (target.matches("#add-project") && !UI.checkWindowOpen()) {
       UI.displayForm("project");
+    } else if (target.matches("#tasks-today-btn")) {
+      console.log(123);
     }
   }
 
