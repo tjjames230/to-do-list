@@ -1,6 +1,5 @@
 // file for keeping track of state for all projects & adding new projects
 export { allProjects, Project };
-const allProjects = [projectOne, projectTwo];
 
 const projectOne = {
   name: "Personal",
@@ -9,6 +8,8 @@ const projectOne = {
 const projectTwo = {
   name: "Work",
 };
+
+const allProjects = [projectOne, projectTwo];
 
 class Project {
   constructor(name) {

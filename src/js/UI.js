@@ -31,6 +31,7 @@ class UI {
 
   static loadProjects() {
     this.clearContent("#project-ctn");
+    this.displayProjects();
   }
 
   static loadEventListeners() {
@@ -190,13 +191,34 @@ class UI {
     }
   }
 
-  static handleProjectSubmit() {
+  static handleProjectSubmit(formCtn) {
     const submitBtn = document.querySelector("#submit-new-project");
     submitBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      const project = document.querySelector("#project-name").value;
-      if (this.checkFormConditions(project)) {
+      const projectName = document.querySelector("#project-name").value;
+      if (this.checkFormConditions(projectName)) {
+        const project = new Project(projectName);
+        project.addProject();
+        main.removeChild(formCtn);
+        UI.newTaskWindowOpen = false;
+        this.loadProjects();
       }
     });
   }
+
+  static displayProjects() {
+    this.createProject();
+    // this.addProjectEventListeners(); <-- THIS WILL BE FOR DELETING/EDITING PROJECTS
+  }
+
+  static createProject() {
+    for (let i = 0; i < allProjects.length; i++) {
+      const name = allProjects[i].name;
+      const p = document.createElement("p");
+      p.innerHTML = `# <span class="project">${name}</span>`;
+      document.querySelector("#project-ctn").appendChild(p);
+    }
+  }
+
+  static addProjectEventListeners() {}
 }
