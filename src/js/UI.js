@@ -4,7 +4,8 @@ import { format } from "date-fns";
 export { UI };
 
 const main = document.querySelector("main");
-console.log(format(new Date(), "'Today is a' eeee"));
+
+console.log(getDate());
 
 class UI {
   static loadHome() {
@@ -134,7 +135,10 @@ class UI {
 
       // assign values from form
       const title = document.querySelector("#title").value;
-      const dueDate = document.querySelector("#due-date").value;
+      const day = document.querySelector("#due-date").value.slice(8, 10);
+      const month = document.querySelector("#due-date").value.slice(5, 7);
+      const year = document.querySelector("#due-date").value.slice(0, 4);
+      const dueDate = format(new Date(year, month, day), "MM/dd/yyyy");
       const description = document.querySelector("#description").value;
       const project = document.querySelector("#project").value;
 
@@ -235,4 +239,16 @@ class UI {
   }
 
   static addProjectEventListeners() {}
+
+  // get today's date
+  static getDate() {
+    const newDate = new Date();
+    const year = newDate.getFullYear();
+    const month = newDate.getMonth() + 1;
+    const d = newDate.getDate();
+
+    return `${month.toString().padStart(2, "0")}/${d
+      .toString()
+      .padStart(2, "0")}/${year}`;
+  }
 }
