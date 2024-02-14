@@ -163,16 +163,18 @@ class UI {
         task.addTask();
         main.removeChild(formCtn);
         UI.newTaskWindowOpen = false;
-        this.loadTasks("All");
+        this.loadTasks("Today");
       }
     });
   }
 
   static displayTasks(day) {
-    let arr = [];
+    let arr = [...allTasks];
 
-    if (day === "All") {
-      arr = allTasks;
+    if (day === "Today") {
+      arr = allTasks.filter((obj) => {
+        obj.dueDate == this.getTodaysDate();
+      });
     }
 
     this.createTask(arr);
@@ -259,7 +261,7 @@ class UI {
   static addProjectEventListeners() {}
 
   // get today's date
-  static getDate() {
+  static getTodaysDate() {
     const newDate = new Date();
     const year = newDate.getFullYear();
     const month = newDate.getMonth() + 1;
