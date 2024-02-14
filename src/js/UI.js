@@ -1,4 +1,5 @@
 import { allTasks, Task } from "./Tasks";
+import { allProjects, Project } from "./Projects";
 export { UI };
 
 const main = document.querySelector("main");
@@ -29,8 +30,7 @@ class UI {
   }
 
   static loadProjects() {
-    // this.clearContent();
-    // main.innerHTML = `<h1>${project.name}</h1>`;
+    this.clearContent("#project-ctn");
   }
 
   static loadEventListeners() {
@@ -171,13 +171,13 @@ class UI {
   static checkTaskComplete(event) {
     const parentDiv = event.target.parentNode.parentNode;
     const title = parentDiv.firstChild.nextSibling.nextSibling.textContent;
-    for (let i = 0; i < allTasks.length; i++) {
-      if (title === allTasks[i].title) {
-        allTasks[i].deleteTask();
+    allTasks.map((obj) => {
+      if (title === obj.title) {
+        obj.deleteTask();
         UI.loadTasks();
         return;
       }
-    }
+    });
   }
 
   static checkFormConditions(field) {
@@ -194,6 +194,9 @@ class UI {
     const submitBtn = document.querySelector("#submit-new-project");
     submitBtn.addEventListener("click", (e) => {
       e.preventDefault();
+      const project = document.querySelector("#project-name").value;
+      if (this.checkFormConditions(project)) {
+      }
     });
   }
 }
