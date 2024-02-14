@@ -5,8 +5,6 @@ export { UI };
 
 const main = document.querySelector("main");
 
-console.log(getDate());
-
 class UI {
   static loadHome() {
     this.loadTasks();
@@ -245,9 +243,9 @@ class UI {
     const newDate = new Date();
     const year = newDate.getFullYear();
     const month = newDate.getMonth() + 1;
-    const d = newDate.getDate();
+    const day = newDate.getDate();
 
-    return `${month.toString().padStart(2, "0")}/${d
+    return `${month.toString().padStart(2, "0")}/${day
       .toString()
       .padStart(2, "0")}/${year}`;
   }
