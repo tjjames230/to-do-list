@@ -6,8 +6,19 @@ export { UI };
 const main = document.querySelector("main");
 
 class UI {
+  static currentTab = "";
+
+  static getCurrentTab() {
+    return this.currentTab;
+  }
+
+  static setCurrentTab(newTab) {
+    this.currentTab = newTab;
+  }
+
   static loadHome() {
     this.loadTasks("Today");
+    this.setCurrentTab("Today");
     this.loadProjects();
     this.loadEventListeners();
   }
@@ -56,10 +67,13 @@ class UI {
     } else if (target.matches("#add-project") && !UI.checkWindowOpen()) {
       UI.displayForm("project");
     } else if (target.matches("#tasks-today-btn")) {
+      UI.setCurrentTab("Today");
       UI.loadTasks("Today");
     } else if (target.matches("#tasks-upcoming-btn")) {
+      UI.setCurrentTab("Upcoming");
       UI.loadTasks("Upcoming");
     } else if (target.matches("#tasks-all-btn")) {
+      UI.setCurrentTab("All");
       UI.loadTasks("All");
     }
   }
@@ -163,7 +177,7 @@ class UI {
         task.addTask();
         main.removeChild(formCtn);
         UI.newTaskWindowOpen = false;
-        this.loadTasks("Today");
+        this.loadTasks(UI.getCurrentTab());
       }
     });
   }
