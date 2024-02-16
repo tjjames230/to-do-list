@@ -120,6 +120,21 @@ class UI {
       <label for="description">Description</label>
       <input type="text" id="description"/>
     </div>
+    <fieldset class="input-ctn">
+    <legend>Select a priority:</legend>
+    <div>
+      <input type="radio" id="low-priority" name="priority" value="low" checked />
+      <label for="low-priority">Low</label>
+    </div>
+    <div>
+      <input type="radio" id="medium-priority" name="priority" value="medium" />
+      <label for="medium-priority">Medium</label>
+    </div>
+    <div>
+      <input type="radio" id="high-priority" name="priority" value="high" />
+      <label for="high-priority">High</label>
+    </div>
+    </fieldset>
     <div class="input-ctn" id="due-date-ctn">
       <label for="due-date">Due Date</label>
       <input id="due-date" type="date" />
@@ -129,7 +144,9 @@ class UI {
       <select name="project" id="project">
       <option value="">-- Choose a project --</option>
       ${this.createSelectOptions()}
-      </select></div><button id="submit-new-task" type="submit">Create Task</button>`;
+      </select>
+    </div>
+    <button id="submit-new-task" type="submit">Create Task</button>`;
     return form;
   }
 
@@ -140,6 +157,11 @@ class UI {
       options += text;
     }
     return options;
+  }
+
+  static getRadioBtnValue(name) {
+    let option = document.querySelector(`input[name=${name}]:checked`).value;
+    return option;
   }
 
   static createProjectForm() {
@@ -166,6 +188,7 @@ class UI {
       const year = document.querySelector("#due-date").value.slice(0, 4);
       const dueDate = format(new Date(year, month - 1, day), "MM/dd/yyyy");
       const description = document.querySelector("#description").value;
+      const priority = this.getRadioBtnValue("priority");
       const project = document.querySelector("#project").value;
 
       // if valid, create new obj with values
@@ -173,7 +196,7 @@ class UI {
         this.checkFormConditions(title) &&
         this.checkFormConditions(dueDate)
       ) {
-        const task = new Task(title, dueDate, description, project);
+        const task = new Task(title, dueDate, priority, description, project);
         task.addTask();
         main.removeChild(formCtn);
         UI.newTaskWindowOpen = false;
@@ -216,6 +239,7 @@ class UI {
       const title = arr[i].title;
       const dueDate = arr[i].dueDate;
       const description = arr[i].description;
+      const priority = arr[i].priority;
       const project = arr[i].project;
       const div = document.createElement("div");
       div.classList.add("task");
@@ -225,6 +249,7 @@ class UI {
       <h5 class="task-title">${title}</h5>
       <p class="task-date">${dueDate}</p>
       <p class="task-description">${description}</p>
+      <p class="task-priority ${priority}"></p>
       <p class="task-project">${project}</p>`;
       document.querySelector("#task-ctn").appendChild(div);
     }
