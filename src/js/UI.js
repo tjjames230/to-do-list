@@ -44,7 +44,7 @@ class UI {
   static getHeader(day) {
     if (day === "Today") {
       return "Today's";
-    } else if (day === "Upcoming") {
+    } else if (day === "Week") {
       return "This Week's";
     } else if (day === "All") {
       return "All";
@@ -69,9 +69,9 @@ class UI {
     } else if (target.matches("#tasks-today-btn")) {
       UI.setCurrentTab("Today");
       UI.loadTasks("Today");
-    } else if (target.matches("#tasks-upcoming-btn")) {
-      UI.setCurrentTab("Upcoming");
-      UI.loadTasks("Upcoming");
+    } else if (target.matches("#tasks-week-btn")) {
+      UI.setCurrentTab("Week");
+      UI.loadTasks("Week");
     } else if (target.matches("#tasks-all-btn")) {
       UI.setCurrentTab("All");
       UI.loadTasks("All");
@@ -193,13 +193,11 @@ class UI {
       }
 
       UI.createTask(arr);
-    } else if (day === "Upcoming") {
-      //console.log(UI.getDates("Today") > UI.getDates("Upcoming"));
-
+    } else if (day === "Week") {
       for (let i = 0; i < allTasks.length; i++) {
         if (
           allTasks[i].dueDate >= UI.getDates("Today") &&
-          allTasks[i].dueDate <= UI.getDates("Upcoming")
+          allTasks[i].dueDate <= UI.getDates("Week")
         ) {
           arr.push(allTasks[i]);
         }
@@ -304,7 +302,7 @@ class UI {
       return `${month.toString().padStart(2, "0")}/${day
         .toString()
         .padStart(2, "0")}/${year}`;
-    } else if (date === "Upcoming") {
+    } else if (date === "Week") {
       return `${month.toString().padStart(2, "0")}/${week
         .toString()
         .padStart(2, "0")}/${year}`;
