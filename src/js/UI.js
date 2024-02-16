@@ -194,7 +194,18 @@ class UI {
 
       UI.createTask(arr);
     } else if (day === "Upcoming") {
-      console.log(2);
+      //console.log(UI.getDates("Today") > UI.getDates("Upcoming"));
+
+      for (let i = 0; i < allTasks.length; i++) {
+        if (
+          allTasks[i].dueDate >= UI.getDates("Today") &&
+          allTasks[i].dueDate <= UI.getDates("Upcoming")
+        ) {
+          arr.push(allTasks[i]);
+        }
+      }
+
+      UI.createTask(arr);
     } else {
       UI.createTask(allTasks);
     }
@@ -287,9 +298,14 @@ class UI {
     const year = newDate.getFullYear();
     const month = newDate.getMonth() + 1;
     const day = newDate.getDate();
+    const week = newDate.getDate() + 7;
 
     if (date === "Today") {
       return `${month.toString().padStart(2, "0")}/${day
+        .toString()
+        .padStart(2, "0")}/${year}`;
+    } else if (date === "Upcoming") {
+      return `${month.toString().padStart(2, "0")}/${week
         .toString()
         .padStart(2, "0")}/${year}`;
     }
