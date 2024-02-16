@@ -183,15 +183,22 @@ class UI {
   }
 
   static displayTasks(day) {
-    let arr = [...allTasks];
+    let arr = [];
 
     if (day === "Today") {
-      arr = allTasks.filter((obj) => {
-        obj.dueDate == this.getTodaysDate();
-      });
+      for (let i = 0; i < allTasks.length; i++) {
+        if (allTasks[i].dueDate === UI.getDates("Today")) {
+          arr.push(allTasks[i]);
+        }
+      }
+
+      UI.createTask(arr);
+    } else if (day === "Upcoming") {
+      console.log(2);
+    } else {
+      UI.createTask(allTasks);
     }
 
-    this.createTask(arr);
     this.addTaskEventListeners();
   }
 
@@ -275,14 +282,16 @@ class UI {
   static addProjectEventListeners() {}
 
   // get today's date
-  static getTodaysDate() {
+  static getDates(date) {
     const newDate = new Date();
     const year = newDate.getFullYear();
     const month = newDate.getMonth() + 1;
     const day = newDate.getDate();
 
-    return `${month.toString().padStart(2, "0")}/${day
-      .toString()
-      .padStart(2, "0")}/${year}`;
+    if (date === "Today") {
+      return `${month.toString().padStart(2, "0")}/${day
+        .toString()
+        .padStart(2, "0")}/${year}`;
+    }
   }
 }
