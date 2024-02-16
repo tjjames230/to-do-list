@@ -268,7 +268,7 @@ class UI {
     allTasks.map((obj) => {
       if (title === obj.title) {
         obj.deleteTask();
-        UI.loadTasks();
+        UI.loadTasks(UI.getCurrentTab());
         return;
       }
     });
