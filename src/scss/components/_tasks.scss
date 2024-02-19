@@ -144,6 +144,10 @@
     display: none;
   }
 
+  .form-bg {
+    max-width: calc(100% - 200px);
+  }
+
   .task-list {
     .task,
     .task-headers {

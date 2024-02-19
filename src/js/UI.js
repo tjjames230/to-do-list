@@ -341,7 +341,7 @@ class UI {
 
   static displayMobileNav() {
     const aside = document.querySelector("aside");
-    if (aside.style.display !== "flex") {
+    if (aside.style.display === "flex") {
       aside.style.display = "none";
     } else {
       aside.style.display = "flex";
