@@ -5,6 +5,8 @@ export { UI };
 
 const main = document.querySelector("main");
 
+let widthMatch = window.matchMedia("(min-width: 768px)");
+
 class UI {
   static currentTab = "";
 
@@ -75,6 +77,11 @@ class UI {
     } else if (target.matches("#tasks-all-btn")) {
       UI.setCurrentTab("All");
       UI.loadTasks("All");
+    } else if (
+      target.matches("#mobile-nav-btn") ||
+      target.matches("#mobile-nav-btn div")
+    ) {
+      console.log(1);
     }
   }
 
