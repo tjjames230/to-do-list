@@ -137,3 +137,31 @@
     max-width: calc(100% - 300px);
   }
 }
+
+@media screen and (max-width: 1200px) {
+  #task-description-header,
+  .task-description {
+    display: none;
+  }
+
+  .task-list {
+    .task,
+    .task-headers {
+      grid: auto-flow / rem(40) 1fr rem(100) rem(80) rem(150);
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #task-priority-header,
+  .task-priority {
+    display: none;
+  }
+
+  .task-list {
+    .task,
+    .task-headers {
+      grid: auto-flow / rem(40) 1fr rem(100) rem(150);
+    }
+  }
+}

@@ -10,7 +10,16 @@
     ></script>
   <script defer src="main.bundle.js"></script></head>
   <body>
-    <!-- navigation bar and project list -->
+    <!-- mobile header -->
+    <header>
+      <div>First Name</div>
+      <button id="mobile-nav-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </button>
+    </header>
+    <!-- navigation bar and project list for desktop -->
     <aside>
       <div>First Name</div>
       <div class="aside-flex">
@@ -31,11 +40,11 @@
       <section class="task-list">
         <div class="task-headers">
           <p class="task-complete"></p>
-          <h5>Title</h5>
-          <p>Due Date</p>
-          <p>Description</p>
-          <p>Priority</p>
-          <p>Project</p>
+          <h5 id="task-title-header">Title</h5>
+          <p id="task-due-date-header">Due Date</p>
+          <p id="task-description-header">Description</p>
+          <p id="task-priority-header">Priority</p>
+          <p id="task-project-header">Project</p>
         </div>
         <div id="task-ctn"></div>
       </section>

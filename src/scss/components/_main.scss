@@ -10,3 +10,9 @@ main {
   gap: rem(45);
   background-color: gray;
 }
+
+@media screen and (max-width: 768px) {
+  main {
+    width: 100%;
+  }
+}
