@@ -5,8 +5,6 @@ export { UI };
 
 const main = document.querySelector("main");
 
-let widthMatch = window.matchMedia("(min-width: 768px)");
-
 class UI {
   static currentTab = "";
 
@@ -81,7 +79,7 @@ class UI {
       target.matches("#mobile-nav-btn") ||
       target.matches("#mobile-nav-btn div")
     ) {
-      console.log(1);
+      UI.displayMobileNav();
     }
   }
 
@@ -338,6 +336,15 @@ class UI {
       return `${month.toString().padStart(2, "0")}/${week
         .toString()
         .padStart(2, "0")}/${year}`;
+    }
+  }
+
+  static displayMobileNav() {
+    const aside = document.querySelector("aside");
+    if (aside.style.display !== "flex") {
+      aside.style.display = "none";
+    } else {
+      aside.style.display = "flex";
     }
   }
 }
