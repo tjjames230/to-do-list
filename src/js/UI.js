@@ -5,6 +5,8 @@ export { UI };
 
 const main = document.querySelector("main");
 
+let widthMatch = window.matchMedia("(min-width: 769px)");
+
 class UI {
   static currentTab = "";
 
@@ -58,6 +60,18 @@ class UI {
 
   static loadEventListeners() {
     document.addEventListener("click", this.handleDocumentClick);
+    this.resetAside();
+  }
+
+  static resetAside() {
+    widthMatch.addEventListener("change", (width) => {
+      if (width.matches) {
+        let aside = document.querySelector("aside");
+        if (aside.style.display !== "flex") {
+          aside.style.display = "flex";
+        }
+      }
+    });
   }
 
   static handleDocumentClick(e) {
