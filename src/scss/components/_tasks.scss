@@ -92,60 +92,10 @@
   }
 }
 
-.form-bg {
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 80%;
-  background-color: hsla(0, 0%, 0%, 0.7);
-
-  .new-form {
-    background-color: white;
-    padding: rem(25);
-    border-radius: rem(25);
-    display: flex;
-    flex-direction: column;
-    gap: rem(20);
-
-    .input-ctn {
-      display: flex;
-      flex-direction: column;
-    }
-
-    fieldset {
-      padding: rem(5);
-
-      legend {
-        text-align: center;
-        padding: 0 rem(15);
-      }
-
-      div {
-        margin: rem(5);
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1500px) {
-  .form-bg {
-    max-width: calc(100% - 300px);
-  }
-}
-
 @media screen and (max-width: 1200px) {
   #task-description-header,
   .task-description {
     display: none;
-  }
-
-  .form-bg {
-    max-width: calc(100% - 200px);
   }
 
   .task-list {
@@ -166,6 +116,22 @@
     .task,
     .task-headers {
       grid: auto-flow / rem(40) 1fr rem(100) rem(150);
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #task-date-header,
+  #task-project-header,
+  .task-date,
+  .task-project {
+    display: none;
+  }
+
+  .task-list {
+    .task,
+    .task-headers {
+      grid: auto-flow / rem(40) 1fr;
     }
   }
 }

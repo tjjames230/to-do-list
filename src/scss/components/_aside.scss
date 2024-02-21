@@ -10,7 +10,6 @@ aside {
   gap: rem(45);
   background-color: $clr-tertiary;
   min-height: 100vh;
-  z-index: 2;
 
   .aside-flex {
     display: flex;
@@ -52,5 +51,6 @@ aside {
   aside {
     display: none;
     width: 100%;
+    min-height: auto;
   }
 }
