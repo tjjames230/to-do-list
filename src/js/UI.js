@@ -5,7 +5,8 @@ export { UI };
 
 const main = document.querySelector("main");
 
-let widthMatch = window.matchMedia("(min-width: 769px)");
+let desktopWidth = window.matchMedia("(min-width: 769px)");
+let mobileWidth = window.matchMedia("(max-width: 768px)");
 
 class UI {
   static currentTab = "";
@@ -64,11 +65,19 @@ class UI {
   }
 
   static resetAside() {
-    widthMatch.addEventListener("change", (width) => {
+    desktopWidth.addEventListener("change", (width) => {
       if (width.matches) {
         let aside = document.querySelector("aside");
         if (aside.style.display !== "flex") {
           aside.style.display = "flex";
+        }
+      }
+    });
+    mobileWidth.addEventListener("change", (width) => {
+      if (width.matches) {
+        let aside = document.querySelector("aside");
+        if (aside.style.display === "flex") {
+          aside.style.display = "none";
         }
       }
     });

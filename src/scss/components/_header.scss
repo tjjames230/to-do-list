@@ -8,6 +8,11 @@ header {
   align-items: center;
   background-color: lightblue;
 
+  h1 {
+    color: black;
+    font-weight: 700;
+  }
+
   button {
     display: flex;
     flex-direction: column;
