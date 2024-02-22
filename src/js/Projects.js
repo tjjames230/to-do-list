@@ -1,25 +1,25 @@
 export { allProjects, Project };
 
 const projectOne = {
-  name: "Personal",
+	name: "Personal",
 };
 
 const projectTwo = {
-  name: "Work",
+	name: "Work",
 };
 
 const allProjects = [projectOne, projectTwo];
 
 class Project {
-  constructor(name) {
-    this.name = name;
-  }
+	constructor(name) {
+		this.name = name;
+	}
 
-  deleteProject() {
-    allProjects.splice(allProjects.indexOf(this), 1);
-  }
+	deleteProject() {
+		allProjects.splice(allProjects.indexOf(this), 1);
+	}
 
-  addProject() {
-    allProjects.push(this);
-  }
+	addProject() {
+		allProjects.push(this);
+	}
 }

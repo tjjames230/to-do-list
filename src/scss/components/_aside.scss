@@ -2,55 +2,55 @@
 @use "../globals/" as *;
 
 aside {
-  width: 20%;
-  min-width: rem(300);
-  padding: rem(25);
-  display: flex;
-  flex-direction: column;
-  gap: rem(45);
-  background-color: $clr-tertiary;
-  min-height: 100vh;
+	width: 20%;
+	min-width: rem(300);
+	padding: rem(25);
+	display: flex;
+	flex-direction: column;
+	gap: rem(45);
+	background-color: $clr-tertiary;
+	min-height: 100vh;
 
-  .aside-flex {
-    display: flex;
-    flex-direction: column;
-    gap: rem(10);
-  }
+	.aside-flex {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
 
-  button {
-    font-size: rem(14);
-    border: none;
-    padding: rem(5);
-    background: none;
-    border-radius: rem(10);
-    display: flex;
-    gap: rem(10);
-    padding-left: rem(15);
-  }
+	button {
+		font-size: rem(14);
+		border: none;
+		padding: rem(5);
+		background: none;
+		border-radius: rem(10);
+		display: flex;
+		gap: rem(10);
+		padding-left: rem(15);
+	}
 
-  button:hover {
-    background-color: $clr-primary;
-    cursor: pointer;
-  }
+	button:hover {
+		background-color: $clr-primary;
+		cursor: pointer;
+	}
 
-  #project-ctn {
-    padding-left: rem(15);
-    display: flex;
-    flex-direction: column;
-    gap: rem(10);
-  }
+	#project-ctn {
+		padding-left: rem(15);
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
 }
 
 @media screen and (max-width: 1200px) {
-  aside {
-    min-width: rem(200);
-  }
+	aside {
+		min-width: rem(200);
+	}
 }
 
 @media screen and (max-width: 768px) {
-  aside {
-    display: none;
-    width: 100%;
-    min-height: auto;
-  }
+	aside {
+		display: none;
+		width: 100%;
+		min-height: auto;
+	}
 }

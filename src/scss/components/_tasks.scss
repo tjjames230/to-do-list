@@ -2,136 +2,136 @@
 @use "../globals/" as *;
 
 .task-list {
-  display: flex;
-  flex-direction: column;
-  gap: rem(10);
-  width: 90%;
+	display: flex;
+	flex-direction: column;
+	gap: rem(10);
+	width: 90%;
 
-  .task-headers {
-    font-weight: 700;
-    background-color: lightblue;
-  }
+	.task-headers {
+		font-weight: 700;
+		background-color: lightblue;
+	}
 
-  .task {
-    border-bottom: 1px solid black;
+	.task {
+		border-bottom: 1px solid black;
 
-    button {
-      background: none;
+		button {
+			background: none;
 
-      i {
-        height: 100%;
-        width: 100%;
-      }
-    }
-  }
+			i {
+				height: 100%;
+				width: 100%;
+			}
+		}
+	}
 
-  .task,
-  .task-headers {
-    display: grid;
-    grid: auto-flow / rem(40) rem(200) rem(100) 1fr rem(80) rem(150);
-    gap: rem(15);
-    padding: rem(10);
-    align-items: center;
+	.task,
+	.task-headers {
+		display: grid;
+		grid: auto-flow / rem(40) rem(200) rem(100) 1fr rem(80) rem(150);
+		gap: rem(15);
+		padding: rem(10);
+		align-items: center;
 
-    h5,
-    p,
-    i {
-      text-align: center;
-    }
+		h5,
+		p,
+		i {
+			text-align: center;
+		}
 
-    i {
-      padding: rem(5);
-    }
+		i {
+			padding: rem(5);
+		}
 
-    i:hover {
-      cursor: pointer;
-      background-color: hsl(120, 100%, 50%);
-      color: white;
-    }
+		i:hover {
+			cursor: pointer;
+			background-color: hsl(120, 100%, 50%);
+			color: white;
+		}
 
-    .task-complete {
-      border: none;
-    }
+		.task-complete {
+			border: none;
+		}
 
-    .task-title {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
+		.task-title {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
 
-    .task-description {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
+		.task-description {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
 
-    .task-project {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-    }
+		.task-project {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
 
-    .task-priority {
-      height: rem(10);
-      width: rem(10);
-      border-radius: rem(10);
-      margin: 0 auto;
-    }
+		.task-priority {
+			height: rem(10);
+			width: rem(10);
+			border-radius: rem(10);
+			margin: 0 auto;
+		}
 
-    .low {
-      background-color: green;
-    }
+		.low {
+			background-color: green;
+		}
 
-    .medium {
-      background-color: yellow;
-    }
+		.medium {
+			background-color: yellow;
+		}
 
-    .high {
-      background-color: red;
-    }
-  }
+		.high {
+			background-color: red;
+		}
+	}
 }
 
 @media screen and (max-width: 1200px) {
-  #task-description-header,
-  .task-description {
-    display: none;
-  }
+	#task-description-header,
+	.task-description {
+		display: none;
+	}
 
-  .task-list {
-    .task,
-    .task-headers {
-      grid: auto-flow / rem(40) 1fr rem(100) rem(80) rem(150);
-    }
-  }
+	.task-list {
+		.task,
+		.task-headers {
+			grid: auto-flow / rem(40) 1fr rem(100) rem(80) rem(150);
+		}
+	}
 }
 
 @media screen and (max-width: 900px) {
-  #task-priority-header,
-  .task-priority {
-    display: none;
-  }
+	#task-priority-header,
+	.task-priority {
+		display: none;
+	}
 
-  .task-list {
-    .task,
-    .task-headers {
-      grid: auto-flow / rem(40) 1fr rem(100) rem(150);
-    }
-  }
+	.task-list {
+		.task,
+		.task-headers {
+			grid: auto-flow / rem(40) 1fr rem(100) rem(150);
+		}
+	}
 }
 
 @media screen and (max-width: 500px) {
-  #task-date-header,
-  #task-project-header,
-  .task-date,
-  .task-project {
-    display: none;
-  }
+	#task-date-header,
+	#task-project-header,
+	.task-date,
+	.task-project {
+		display: none;
+	}
 
-  .task-list {
-    .task,
-    .task-headers {
-      grid: auto-flow / rem(40) 1fr;
-    }
-  }
+	.task-list {
+		.task,
+		.task-headers {
+			grid: auto-flow / rem(40) 1fr;
+		}
+	}
 }
