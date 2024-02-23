@@ -4,11 +4,7 @@ const projectOne = {
 	name: "Personal",
 };
 
-const projectTwo = {
-	name: "Work",
-};
-
-const allProjects = [projectOne, projectTwo];
+const allProjects = [projectOne];
 
 class Project {
 	constructor(name) {

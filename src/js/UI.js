@@ -270,14 +270,14 @@ class UI {
 			const project = arr[i].project;
 			const div = document.createElement("div");
 			div.classList.add("task");
-			div.innerHTML = `<button class="task-complete">
-        	<i class="fa-solid fa-check"></i>
-			</button>
-			<h5 class="task-title">${title}</h5>
+			div.innerHTML = `<h5 class="task-title">${title}</h5>
 			<p class="task-date">${dueDate}</p>
 			<p class="task-description">${description}</p>
 			<p class="task-priority ${priority}"></p>
-			<p class="task-project">${project}</p>`;
+			<p class="task-project">${project}</p>
+			<button class="task-complete">
+        	<i class="fa-solid fa-check"></i>
+			</button>`;
 			document.querySelector("#task-ctn").appendChild(div);
 		}
 	}
@@ -291,7 +291,7 @@ class UI {
 
 	static checkTaskComplete(e) {
 		const parentDiv = e.target.parentNode.parentNode;
-		const title = parentDiv.firstChild.nextSibling.nextSibling.textContent;
+		const title = parentDiv.firstChild.textContent;
 		allTasks.map((obj) => {
 			if (title === obj.title) {
 				obj.deleteTask();
@@ -342,7 +342,7 @@ class UI {
 
 	static addProjectEventListeners() {}
 
-	// get today's date
+	// get dates
 	static getDates(date) {
 		const newDate = new Date();
 		const year = newDate.getFullYear();
@@ -350,11 +350,14 @@ class UI {
 		const day = newDate.getDate();
 		const week = newDate.getDate() + 7;
 
+		// get tasks due today
 		if (date === "Today") {
 			return `${month.toString().padStart(2, "0")}/${day
 				.toString()
 				.padStart(2, "0")}/${year}`;
-		} else if (date === "Week") {
+		}
+		// get tasks due within the week
+		else if (date === "Week") {
 			return `${month.toString().padStart(2, "0")}/${week
 				.toString()
 				.padStart(2, "0")}/${year}`;

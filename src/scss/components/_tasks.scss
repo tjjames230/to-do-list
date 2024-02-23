@@ -28,7 +28,7 @@
 	.task,
 	.task-headers {
 		display: grid;
-		grid: auto-flow / rem(40) rem(200) rem(100) 1fr rem(80) rem(150);
+		grid: auto-flow / rem(200) rem(100) 1fr rem(80) rem(150) rem(80);
 		gap: rem(15);
 		padding: rem(10);
 		align-items: center;
@@ -101,7 +101,7 @@
 	.task-list {
 		.task,
 		.task-headers {
-			grid: auto-flow / rem(40) 1fr rem(100) rem(80) rem(150);
+			grid: auto-flow / 1fr rem(100) rem(80) rem(150) rem(80);
 		}
 	}
 }
@@ -115,15 +115,13 @@
 	.task-list {
 		.task,
 		.task-headers {
-			grid: auto-flow / rem(40) 1fr rem(100) rem(150);
+			grid: auto-flow / 1fr rem(100) rem(150) rem(80);
 		}
 	}
 }
 
-@media screen and (max-width: 500px) {
-	#task-date-header,
+@media screen and (max-width: 600px) {
 	#task-project-header,
-	.task-date,
 	.task-project {
 		display: none;
 	}
@@ -131,7 +129,21 @@
 	.task-list {
 		.task,
 		.task-headers {
-			grid: auto-flow / rem(40) 1fr;
+			grid: auto-flow / 1fr rem(100) rem(80);
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#task-date-header,
+	.task-date {
+		display: none;
+	}
+
+	.task-list {
+		.task,
+		.task-headers {
+			grid: auto-flow / 1fr rem(80);
 		}
 	}
 }
