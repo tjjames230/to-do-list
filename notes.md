@@ -21,5 +21,6 @@ TODOs
 
 - implement local storage so tasks aren't reset after reload
 - add ability to click on projects to only display tasks for that project
+- add block if trying to add new project with same name as current
 - add ability to delete projects
   -- maybe strikethrough task project names for project's that have been deleted?

@@ -1,6 +1,5 @@
 import { allTasks, Task } from "./Tasks";
 import { allProjects, Project } from "./Projects";
-import { localStorage } from "./Storage";
 import { format } from "date-fns";
 export { UI };
 

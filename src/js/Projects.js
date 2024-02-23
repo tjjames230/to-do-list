@@ -1,3 +1,4 @@
+import { MyStorage } from "./Storage";
 export { allProjects, Project };
 
 const projectOne = {
@@ -21,5 +22,6 @@ class Project {
 
 	addProject() {
 		allProjects.push(this);
+		MyStorage.setProjectStorage(this);
 	}
 }

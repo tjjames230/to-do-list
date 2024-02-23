@@ -1,4 +1,4 @@
 import { UI } from "./js/UI.js";
 import "./scss/styles.scss";
 
-UI.loadHome();
+document.addEventListener("DOMContentLoaded", UI.loadHome());

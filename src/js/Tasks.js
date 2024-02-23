@@ -1,3 +1,4 @@
+import { MyStorage } from "./Storage";
 export { allTasks, Task };
 
 const taskOne = {
