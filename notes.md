@@ -16,3 +16,10 @@ TASKS
 RESEARCH
 
 - will need to add and read docs for datefns package
+
+TODOs
+
+- implement local storage so tasks aren't reset after reload
+- add ability to click on projects to only display tasks for that project
+- add ability to delete projects
+  -- maybe strikethrough task project names for project's that have been deleted?
