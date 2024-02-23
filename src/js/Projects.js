@@ -22,6 +22,7 @@ class Project {
 
 	addProject() {
 		allProjects.push(this);
-		MyStorage.setProjectStorage(this);
+		let stringAllProjects = JSON.stringify(allProjects);
+		MyStorage.setProjectStorage(stringAllProjects);
 	}
 }

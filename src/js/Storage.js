@@ -10,9 +10,8 @@ class MyStorage {
 		console.log("this function will get project local storage");
 	}
 
-	static setProjectStorage(project) {
-		localStorage.setItem(project, JSON.stringify(project.name));
-		console.log(project.name);
+	static setProjectStorage(projects) {
+		localStorage.setItem("projects", projects);
 		console.log(localStorage);
 	}
 }
