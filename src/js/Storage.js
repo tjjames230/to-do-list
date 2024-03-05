@@ -14,4 +14,13 @@ class MyStorage {
 		localStorage.setItem("projects", projects);
 		console.log(localStorage);
 	}
+
+	static getTaskStorage() {
+		console.log("this function will get tasks from storage");
+	}
+
+	static setTaskStorage(tasks) {
+		localStorage.setItem("tasks", tasks);
+		console.log(localStorage);
+	}
 }

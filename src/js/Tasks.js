@@ -35,5 +35,7 @@ class Task {
 
 	addTask() {
 		allTasks.push(this);
+		let stringAllTasks = JSON.stringify(allTasks);
+		MyStorage.setTaskStorage(stringAllTasks);
 	}
 }
