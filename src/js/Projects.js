@@ -18,11 +18,14 @@ class Project {
 
 	deleteProject() {
 		allProjects.splice(allProjects.indexOf(this), 1);
+		let localProjects = JSON.parse(localStorage.projects);
+		localProjects.splice(localProjects.indexOf(this), 1);
 	}
 
 	addProject() {
 		allProjects.push(this);
 		let stringAllProjects = JSON.stringify(allProjects);
 		MyStorage.setProjectStorage(stringAllProjects);
+		console.log();
 	}
 }

@@ -31,6 +31,11 @@ class Task {
 
 	deleteTask() {
 		allTasks.splice(allTasks.indexOf(this), 1);
+		let localTasks = JSON.parse(localStorage.tasks);
+		localTasks.splice(localTasks.indexOf(this), 1);
+		let updatedLocalTasks = JSON.stringify(localTasks);
+		MyStorage.setTaskStorage(updatedLocalTasks);
+		console.log(localStorage.tasks);
 	}
 
 	addTask() {
