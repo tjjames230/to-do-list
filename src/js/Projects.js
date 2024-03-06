@@ -20,6 +20,8 @@ class Project {
 		allProjects.splice(allProjects.indexOf(this), 1);
 		let localProjects = JSON.parse(localStorage.projects);
 		localProjects.splice(localProjects.indexOf(this), 1);
+		let updatedLocalProjects = JSON.stringify(localProjects);
+		MyStorage.setProjectStorage(updatedLocalProjects);
 	}
 
 	addProject() {
