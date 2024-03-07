@@ -1,6 +1,7 @@
 import { allTasks, Task } from "./Tasks";
 import { allProjects, Project } from "./Projects";
 import { format } from "date-fns";
+import { MyStorage } from "./Storage";
 export { UI };
 
 const main = document.querySelector("main");
@@ -22,6 +23,7 @@ class UI {
 	static loadHome() {
 		this.loadTasks("Today");
 		this.setCurrentTab("Today");
+		MyStorage.getProjectStorage();
 		this.loadProjects();
 		this.loadEventListeners();
 	}

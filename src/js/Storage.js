@@ -1,3 +1,5 @@
+import { allProjects } from "./Projects";
+
 export { MyStorage };
 
 // let testObject = { one: 1, two: 2, three: 3 };
@@ -7,7 +9,13 @@ export { MyStorage };
 
 class MyStorage {
 	static getProjectStorage() {
-		console.log("this function will get project local storage");
+		if (localStorage.projects != undefined) {
+			const localProjects = JSON.parse(localStorage.projects);
+			allProjects.push(...localProjects);
+			console.log(allProjects);
+		} else {
+			return;
+		}
 	}
 
 	static setProjectStorage(projects) {

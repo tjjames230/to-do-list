@@ -9,7 +9,7 @@ const projectTwo = {
 	name: "Work",
 };
 
-const allProjects = [projectOne, projectTwo];
+const allProjects = [];
 
 class Project {
 	constructor(name) {
@@ -18,15 +18,15 @@ class Project {
 
 	deleteProject() {
 		allProjects.splice(allProjects.indexOf(this), 1);
-		let localProjects = JSON.parse(localStorage.projects);
+		const localProjects = JSON.parse(localStorage.projects);
 		localProjects.splice(localProjects.indexOf(this), 1);
-		let updatedLocalProjects = JSON.stringify(localProjects);
+		const updatedLocalProjects = JSON.stringify(localProjects);
 		MyStorage.setProjectStorage(updatedLocalProjects);
 	}
 
 	addProject() {
 		allProjects.push(this);
-		let stringAllProjects = JSON.stringify(allProjects);
+		const stringAllProjects = JSON.stringify(allProjects);
 		MyStorage.setProjectStorage(stringAllProjects);
 		console.log();
 	}
