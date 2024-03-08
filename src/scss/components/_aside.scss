@@ -38,6 +38,16 @@ aside {
 		display: flex;
 		flex-direction: column;
 		gap: rem(10);
+
+		.fa-trash {
+			font-size: rem(16);
+			color: black;
+		}
+
+		.fa-trash:hover {
+			color: $clr-primary;
+			cursor: pointer;
+		}
 	}
 }
 

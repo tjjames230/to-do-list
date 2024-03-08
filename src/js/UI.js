@@ -353,7 +353,9 @@ class UI {
 		for (let i = 0; i < allProjects.length; i++) {
 			const name = allProjects[i].name;
 			const p = document.createElement("p");
-			p.innerHTML = `# <span class="project">${name}</span>`;
+			p.style.display = "flex";
+			p.style.justifyContent = "space-between";
+			p.innerHTML = `<span class="project"># ${name}</span><i class="fa-solid fa-trash"></i>`;
 			document.querySelector("#project-ctn").appendChild(p);
 		}
 	}

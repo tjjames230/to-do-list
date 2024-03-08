@@ -1,22 +1,6 @@
 import { MyStorage } from "./Storage";
+
 export { allTasks, Task };
-
-const taskOne = {
-	title: "Buy dog food",
-	dueDate: "01/02/2024",
-	priority: "low",
-	description:
-		"Dog will run out of food in a couple days, will go to the store to buy more.",
-	project: "Personal",
-};
-
-const taskTwo = {
-	title: "Send email to Paul",
-	dueDate: "01/04/2024",
-	priority: "medium",
-	description: "Need to send Paul a list of revisions that need to be done.",
-	project: "Work",
-};
 
 const allTasks = [];
 

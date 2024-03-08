@@ -1,13 +1,6 @@
 import { MyStorage } from "./Storage";
+
 export { allProjects, Project };
-
-const projectOne = {
-	name: "Personal",
-};
-
-const projectTwo = {
-	name: "Work",
-};
 
 const allProjects = [];
 
