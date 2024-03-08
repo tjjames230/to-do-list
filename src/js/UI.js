@@ -21,10 +21,10 @@ class UI {
 	}
 
 	static loadHome() {
-		this.loadTasks("Today");
-		this.setCurrentTab("Today");
 		MyStorage.getProjectStorage();
 		MyStorage.getTaskStorage();
+		this.loadTasks("Today");
+		this.setCurrentTab("Today");
 		this.loadProjects();
 		this.loadEventListeners();
 	}
