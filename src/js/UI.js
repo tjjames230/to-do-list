@@ -24,6 +24,7 @@ class UI {
 		this.loadTasks("Today");
 		this.setCurrentTab("Today");
 		MyStorage.getProjectStorage();
+		MyStorage.getTaskStorage();
 		this.loadProjects();
 		this.loadEventListeners();
 	}
