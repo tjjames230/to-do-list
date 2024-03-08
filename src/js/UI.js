@@ -305,13 +305,28 @@ class UI {
 	}
 
 	static checkFormConditions(field) {
+		let firstCheck = true;
+
 		switch (field) {
 			case "":
 			case " ":
-				return false;
-			default:
-				return true;
+				firstCheck = false;
 		}
+
+		// check if project name already exists
+		function projectExists(arr, value) {
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i].name === value) {
+					return false; // value exists
+				}
+			}
+
+			return true; // value doesn't exist
+		}
+
+		let secondCheck = projectExists(allProjects, field);
+
+		return firstCheck && secondCheck ? true : false;
 	}
 
 	static handleProjectSubmit(formCtn) {

@@ -31,16 +31,15 @@ class Task {
 
 	deleteTask() {
 		allTasks.splice(allTasks.indexOf(this), 1);
-		let localTasks = JSON.parse(localStorage.tasks);
+		const localTasks = JSON.parse(localStorage.tasks);
 		localTasks.splice(localTasks.indexOf(this), 1);
-		let updatedLocalTasks = JSON.stringify(localTasks);
+		const updatedLocalTasks = JSON.stringify(localTasks);
 		MyStorage.setTaskStorage(updatedLocalTasks);
-		console.log(localStorage.tasks);
 	}
 
 	addTask() {
 		allTasks.push(this);
-		let stringAllTasks = JSON.stringify(allTasks);
+		const stringAllTasks = JSON.stringify(allTasks);
 		MyStorage.setTaskStorage(stringAllTasks);
 	}
 }
