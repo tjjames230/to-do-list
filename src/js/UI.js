@@ -1,4 +1,4 @@
-import { allTasks, Task } from "./Tasks";
+import { allTasks, Task, updateTaskProject } from "./Tasks";
 import { allProjects, Project } from "./Projects";
 import { format } from "date-fns";
 import { MyStorage } from "./Storage";
@@ -374,6 +374,8 @@ class UI {
 		allProjects.map((obj) => {
 			if (name === obj.name) {
 				obj.deleteProject();
+				updateTaskProject(name);
+				UI.loadTasks(this.getCurrentTab);
 				UI.loadProjects();
 			}
 		});

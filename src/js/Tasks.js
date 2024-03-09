@@ -1,6 +1,6 @@
 import { MyStorage } from "./Storage";
 
-export { allTasks, Task };
+export { allTasks, Task, updateTaskProject };
 
 const allTasks = [];
 
@@ -25,5 +25,14 @@ class Task {
 		allTasks.push(this);
 		const stringAllTasks = JSON.stringify(allTasks);
 		MyStorage.setTaskStorage(stringAllTasks);
+	}
+}
+
+function updateTaskProject(value) {
+	console.log("update task projects");
+	for (let i = 0; i < allTasks.length; i++) {
+		if (allTasks[i].project === value) {
+			allTasks[i].project = "";
+		}
 	}
 }
