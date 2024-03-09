@@ -346,7 +346,7 @@ class UI {
 
 	static displayProjects() {
 		this.createProject();
-		// this.addProjectEventListeners(); <-- THIS WILL BE FOR DELETING/EDITING PROJECTS
+		this.addProjectEventListeners();
 	}
 
 	static createProject() {
@@ -360,7 +360,24 @@ class UI {
 		}
 	}
 
-	static addProjectEventListeners() {}
+	static addProjectEventListeners() {
+		const completeBtns = document.querySelectorAll(".fa-trash");
+		completeBtns.forEach((btn) => {
+			btn.addEventListener("click", this.checkProjectComplete);
+		});
+	}
+
+	static checkProjectComplete(e) {
+		const name = e.target.parentNode.firstChild.textContent.slice(2);
+		console.log(name);
+
+		allProjects.map((obj) => {
+			if (name === obj.name) {
+				obj.deleteProject();
+				UI.loadProjects();
+			}
+		});
+	}
 
 	// get dates
 	static getDates(date) {
