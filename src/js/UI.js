@@ -375,7 +375,7 @@ class UI {
 			if (name === obj.name) {
 				obj.deleteProject();
 				updateTaskProject(name);
-				UI.loadTasks(this.getCurrentTab);
+				UI.loadTasks(UI.getCurrentTab());
 				UI.loadProjects();
 			}
 		});
