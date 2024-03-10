@@ -39,9 +39,26 @@ aside {
 		flex-direction: column;
 		gap: rem(10);
 
+		button {
+			display: flex;
+			align-items: center;
+			width: 100%;
+		}
+
+		span {
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		i {
+			flex-grow: 1;
+		}
+
 		.fa-trash {
 			font-size: rem(16);
 			color: black;
+			text-align: right;
 		}
 
 		.fa-trash:hover {

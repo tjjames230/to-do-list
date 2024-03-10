@@ -355,7 +355,7 @@ class UI {
 			const p = document.createElement("p");
 			p.style.display = "flex";
 			p.style.justifyContent = "space-between";
-			p.innerHTML = `<span class="project"># ${name}</span><i class="fa-solid fa-trash"></i>`;
+			p.innerHTML = `<button><span class="project"># ${name}</span><i class="fa-solid fa-trash"></i></button>`;
 			document.querySelector("#project-ctn").appendChild(p);
 		}
 	}
