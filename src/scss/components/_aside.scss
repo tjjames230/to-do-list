@@ -2,6 +2,19 @@
 @use "../globals/" as *;
 
 aside {
+	#add-task,
+	#add-project {
+		border: 2px solid $clr-primary;
+		justify-content: center;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	#add-task:hover,
+	#add-project:hover {
+		background-color: $clr-primary;
+	}
+
 	width: 20%;
 	min-width: rem(300);
 	padding: rem(25);
@@ -34,31 +47,35 @@ aside {
 	}
 
 	#project-ctn {
-		padding-left: rem(15);
 		display: flex;
 		flex-direction: column;
 		gap: rem(10);
 
-		button {
+		.projects {
 			display: flex;
 			align-items: center;
 			width: 100%;
+			gap: rem(15);
 		}
 
-		span {
+		button {
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
-		}
-
-		i {
-			flex-grow: 1;
+			padding-right: rem(15);
+			width: 90%;
 		}
 
 		.fa-trash {
 			font-size: rem(16);
 			color: black;
 			text-align: right;
+		}
+
+		.divider {
+			background-color: black;
+			height: 75%;
+			width: rem(1);
 		}
 
 		.fa-trash:hover {

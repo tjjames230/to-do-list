@@ -352,11 +352,13 @@ class UI {
 	static createProject() {
 		for (let i = 0; i < allProjects.length; i++) {
 			const name = allProjects[i].name;
-			const p = document.createElement("p");
-			p.style.display = "flex";
-			p.style.justifyContent = "space-between";
-			p.innerHTML = `<button><span class="project"># ${name}</span><i class="fa-solid fa-trash"></i></button>`;
-			document.querySelector("#project-ctn").appendChild(p);
+			const div = document.createElement("div");
+			div.classList.add("projects");
+			div.innerHTML = `
+			<button class="project"># ${name}</button>
+			<div class="divider"></div>
+			<i class="fa-solid fa-trash"></i>`;
+			document.querySelector("#project-ctn").appendChild(div);
 		}
 	}
 
@@ -368,8 +370,9 @@ class UI {
 	}
 
 	static checkProjectComplete(e) {
-		const name = e.target.parentNode.firstChild.textContent.slice(2);
-		console.log(name);
+		// getting the value of the project name that is clicked
+		const name =
+			e.target.parentNode.firstChild.nextSibling.textContent.slice(2);
 
 		allProjects.map((obj) => {
 			if (name === obj.name) {
